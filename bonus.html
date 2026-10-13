@@ -3,321 +3,436 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎁 Бонус за отзыв | Закрытые материалы</title>
+  <title>🎁 Бонус за отзыв — Полезные гайды и промпты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface2: #27272a;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --accent: #a78bfa;
+      --accent2: #8b5cf6;
+      --green: #34d399;
+      --radius: 16px;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0f0f13;
-      color: #e4e4e7;
-      line-height: 1.65;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
       min-height: 100vh;
     }
-    
-    .container {
-      max-width: 740px;
+    .wrap {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 32px 18px 80px;
     }
-    
-    .header {
+    /* Header */
+    .hero {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 20px 0 32px;
     }
-    
     .badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #8b5cf6, #6366f1);
-      color: white;
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      font-size: 12px;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 16px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
       letter-spacing: 0.3px;
     }
-    
     h1 {
-      font-size: 28px;
+      font-size: clamp(24px, 5vw, 32px);
       font-weight: 700;
+      letter-spacing: -0.03em;
       margin-bottom: 10px;
-      background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+      background: linear-gradient(90deg, #e9d5ff, #c4b5fd, #a5b4fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    
-    .subtitle {
-      color: #a1a1aa;
+    .lead {
+      color: var(--muted);
       font-size: 15px;
+      max-width: 42ch;
+      margin: 0 auto;
     }
-    
+    /* Nav */
     .nav {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
       margin: 28px 0 36px;
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      background: rgba(9,9,11,0.85);
+      backdrop-filter: blur(12px);
+      padding: 10px 0;
+      border-radius: 12px;
     }
-    
     .nav a {
-      background: #18181b;
-      border: 1px solid #27272a;
-      color: #d4d4d8;
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      color: var(--muted);
       font-size: 13px;
+      font-weight: 500;
       padding: 7px 14px;
-      border-radius: 100px;
+      border-radius: 999px;
       text-decoration: none;
       transition: all 0.2s;
     }
-    
     .nav a:hover {
-      border-color: #8b5cf6;
-      color: #c4b5fd;
+      border-color: var(--accent2);
+      color: var(--accent);
+      background: #1e1b4b;
     }
-    
+    /* Cards */
     .card {
-      background: #18181b;
-      border: 1px solid #27272a;
-      border-radius: 16px;
-      padding: 26px;
-      margin-bottom: 20px;
-    }
-    
-    .card-title {
-      font-size: 18px;
-      font-weight: 600;
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: var(--radius);
+      padding: 24px;
       margin-bottom: 18px;
+    }
+    .card-head {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
-    
-    .card-title span { font-size: 22px; }
-    
-    h3 {
-      font-size: 15px;
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 17px;
       font-weight: 600;
-      color: #c4b5fd;
-      margin: 20px 0 10px;
     }
-    
-    h3:first-of-type { margin-top: 0; }
-    
-    .prompt-box {
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 10px;
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    /* Prompt boxes */
+    .prompt {
+      background: #0c0c0e;
+      border: 1px solid var(--surface2);
+      border-radius: 12px;
       padding: 14px 16px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 14px;
-      color: #d4d4d8;
+      color: #e4e4e7;
+      position: relative;
     }
-    
-    .prompt-label {
+    .prompt:last-child { margin-bottom: 0; }
+    .prompt-tag {
       font-size: 11px;
       font-weight: 600;
-      color: #a78bfa;
-      margin-bottom: 6px;
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      margin-bottom: 6px;
     }
-    
-    .tip {
-      background: #1e1b4b;
-      border-left: 3px solid #8b5cf6;
-      padding: 13px 15px;
-      border-radius: 0 10px 10px 0;
+    /* Steps & lists */
+    .step {
+      background: #0c0c0e;
+      border: 1px solid var(--surface2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
       font-size: 14px;
-      color: #c4b5fd;
-      margin-top: 14px;
-    }
-    
-    .list {
-      list-style: none;
-    }
-    
-    .list li {
-      padding: 9px 0;
-      border-bottom: 1px solid #27272a;
-      font-size: 14.5px;
       display: flex;
-      align-items: flex-start;
       gap: 10px;
     }
-    
-    .list li:last-child { border-bottom: none; }
-    
-    .list li::before {
-      content: "→";
-      color: #8b5cf6;
+    .step-num {
+      color: var(--accent);
       font-weight: 600;
       flex-shrink: 0;
     }
-    
-    .step {
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
+    ul.clean {
+      list-style: none;
+    }
+    ul.clean li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--surface2);
       font-size: 14.5px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
     }
-    
-    .step strong {
-      color: #a78bfa;
+    ul.clean li:last-child { border-bottom: none; }
+    ul.clean li::before {
+      content: "→";
+      color: var(--accent2);
       font-weight: 600;
+      flex-shrink: 0;
     }
-    
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 18px 0 10px;
+    }
+    h3:first-of-type { margin-top: 0; }
+    .tip {
+      background: #1e1b4b;
+      border-left: 3px solid var(--accent2);
+      padding: 12px 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 13.5px;
+      color: #c4b5fd;
+      margin-top: 16px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 560px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .mini-card {
+      background: #0c0c0e;
+      border: 1px solid var(--surface2);
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13.5px;
+    }
+    .mini-card strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+    /* Footer */
     .footer {
       text-align: center;
       margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #27272a;
-      color: #71717a;
+      padding-top: 28px;
+      border-top: 1px solid var(--surface2);
+      color: var(--muted);
       font-size: 13px;
     }
-    
-    .footer strong { color: #a1a1aa; }
+    .footer strong { color: #d4d4d8; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="badge">🎁 ПОДАРОК ЗА ОТЗЫВ</div>
-      <h1>Закрытые материалы</h1>
-      <p class="subtitle">Доступ открыт только тем, кто оставил отзыв</p>
-    </div>
+  <div class="wrap">
 
-    <div class="nav">
-      <a href="#prompts">Промпты</a>
-      <a href="#copy">Копирайтинг</a>
+    <header class="hero">
+      <div class="badge">🎁 Подарок за отзыв</div>
+      <h1>Полезные гайды и промпты</h1>
+      <p class="lead">Собрал рабочие техники и готовые запросы, которые реально помогают получать лучшие ответы от Claude и GPT</p>
+    </header>
+
+    <nav class="nav">
+      <a href="#base">Основы</a>
+      <a href="#write">Тексты</a>
       <a href="#study">Учёба</a>
       <a href="#code">Код</a>
-      <a href="#tips">Фишки</a>
+      <a href="#prod">Продуктивность</a>
       <a href="#extra">Ещё</a>
-    </div>
+    </nav>
 
-    <!-- Базовые промпты -->
-    <div class="card" id="prompts">
-      <div class="card-title"><span>✨</span> Готовые промпты</div>
-      
-      <div class="prompt-box">
-        <div class="prompt-label">Для Claude</div>
-        Ты — опытный копирайтер. Напиши продающий текст для [товар/услуга]. Сделай его живым, без воды, с акцентом на выгоды. Добавь призыв к действию в конце.
+    <!-- ОСНОВЫ -->
+    <section class="card" id="base">
+      <div class="card-head">
+        <div class="card-icon" style="background:#1e1b4b;">🧠</div>
+        <div>
+          <div class="card-title">Как писать сильные промпты</div>
+          <div class="card-desc">Базовые правила, которые работают и в Claude, и в GPT</div>
+        </div>
       </div>
-      
-      <div class="prompt-box">
-        <div class="prompt-label">Для GPT</div>
-        Разбери задачу [опиши задачу] по шагам. Для каждого шага дай конкретные действия и возможные ошибки. В конце — чек-лист.
-      </div>
-      
-      <div class="prompt-box">
-        <div class="prompt-label">Универсальный</div>
-        Объясни [тема] максимально просто, как будто я полный новичок. Используй аналогии из реальной жизни. В конце задай 3 вопроса, чтобы проверить понимание.
-      </div>
-    </div>
 
-    <!-- Гайд: Копирайтинг -->
-    <div class="card" id="copy">
-      <div class="card-title"><span>✍️</span> Гайд: тексты и объявления</div>
-      
-      <h3>Промпт для объявления на FunPay</h3>
-      <div class="prompt-box">
-        Напиши продающее объявление для FunPay. Товар: [название]. Основные преимущества: [список]. Сделай текст коротким, цепляющим, без воды. Добавь эмодзи и чёткий призыв к покупке.
+      <div class="grid-2">
+        <div class="mini-card">
+          <strong>1. Будь конкретным</strong>
+          Вместо «напиши текст» → «напиши продающий текст на 120–150 слов для объявления на FunPay»
+        </div>
+        <div class="mini-card">
+          <strong>2. Дай роль</strong>
+          «Ты — опытный копирайтер / senior-разработчик / преподаватель»
+        </div>
+        <div class="mini-card">
+          <strong>3. Укажи формат</strong>
+          «Ответь списком / таблицей / короткими абзацами / без вступлений»
+        </div>
+        <div class="mini-card">
+          <strong>4. Добавь ограничения</strong>
+          «Без воды, без эмодзи, сохрани все факты, максимум 200 слов»
+        </div>
       </div>
-      
-      <h3>Промпт для поста</h3>
-      <div class="prompt-box">
-        Напиши пост для Telegram/Instagram про [тема]. Стиль — живой и дружеский. В начале хук, в середине польза, в конце вопрос или призыв.
-      </div>
-      
-      <h3>Как улучшить любой текст</h3>
-      <div class="step"><strong>1.</strong> Вставь текст и напиши: «Перепиши этот текст живее, убери воду, сделай короче и сильнее»</div>
-      <div class="step"><strong>2.</strong> Если нужно жёстче: «Сделай текст более продающим, добавь выгоды и срочность»</div>
-      <div class="step"><strong>3.</strong> Для мягкого варианта: «Сделай текст дружелюбным и доверительным»</div>
-    </div>
 
-    <!-- Гайд: Учёба -->
-    <div class="card" id="study">
-      <div class="card-title"><span>📚</span> Гайд: учёба и конспекты</div>
-      
-      <h3>Промпт для конспекта</h3>
-      <div class="prompt-box">
-        Сделай подробный, но понятный конспект по теме: [тема]. Разбей на пункты. Выдели главное. В конце добавь 5 вопросов для самопроверки.
+      <h3>Универсальный шаблон</h3>
+      <div class="prompt">
+        <div class="prompt-tag">Копируй и подставляй</div>
+        Роль: [кем должен быть ИИ]<br>
+        Задача: [что нужно сделать]<br>
+        Контекст: [для кого / зачем / какие данные]<br>
+        Формат: [как должен выглядеть ответ]<br>
+        Ограничения: [чего нельзя делать]
       </div>
-      
-      <h3>Промпт для объяснения сложного</h3>
-      <div class="prompt-box">
-        Объясни [сложная тема] так, будто мне 14 лет. Используй простые слова и примеры из жизни. Без научных терминов, если можно их заменить.
-      </div>
-      
-      <h3>Как готовиться к экзамену</h3>
-      <ul class="list">
-        <li>Скинь тему → попроси план изучения на 3–7 дней</li>
-        <li>Попроси сгенерировать тест из 10 вопросов с ответами</li>
-        <li>Попроси объяснить только то, что чаще всего спрашивают</li>
-      </ul>
-    </div>
 
-    <!-- Гайд: Код -->
-    <div class="card" id="code">
-      <div class="card-title"><span>💻</span> Гайд: код и задачи</div>
-      
-      <h3>Промпт для написания кода</h3>
-      <div class="prompt-box">
-        Напиши код на [язык] для задачи: [описание]. Добавь комментарии. Сделай код чистым и понятным. В конце кратко объясни, как он работает.
-      </div>
-      
-      <h3>Промпт для исправления ошибок</h3>
-      <div class="prompt-box">
-        Вот код и ошибка: [вставь код и ошибку]. Найди причину и исправь. Объясни, что было не так.
-      </div>
-      
-      <h3>Полезные команды</h3>
-      <ul class="list">
-        <li>«Оптимизируй этот код и сделай его быстрее»</li>
-        <li>«Перепиши этот код на [другой язык]»</li>
-        <li>«Добавь обработку ошибок в этот код»</li>
-      </ul>
-    </div>
+      <div class="tip">💡 Claude особенно хорошо понимает структуру. Можно использовать теги вроде <задача>...</задача> — это официальная рекомендация Anthropic.</div>
+    </section>
 
-    <!-- Фишки -->
-    <div class="card" id="tips">
-      <div class="card-title"><span>💡</span> Полезные фишки</div>
-      <ul class="list">
-        <li>В Claude лучше всего работает формат «Ты — эксперт в [сфера]. Твоя задача — ...»</li>
+    <!-- ТЕКСТЫ -->
+    <section class="card" id="write">
+      <div class="card-head">
+        <div class="card-icon" style="background:#1e3a2f;">✍️</div>
+        <div>
+          <div class="card-title">Тексты и объявления</div>
+          <div class="card-desc">Готовые промпты под продажи, посты и редактуру</div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Объявление FunPay / Avito</div>
+        Напиши продающее объявление. Товар: [название]. Преимущества: [список]. Сделай текст коротким, цепляющим, с эмодзи и чётким призывом к действию. Без воды.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Пост для Telegram / Instagram</div>
+        Напиши пост на тему [тема]. Стиль — живой и дружеский. Структура: хук в первом предложении → польза → вопрос или призыв в конце.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Улучшение любого текста</div>
+        Перепиши этот текст живее и сильнее. Убери воду, канцелярит и слабые формулировки. Сохрани смысл и факты:
+        [вставь текст]
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Строгий редактор</div>
+        Ты — строгий редактор. Улучши ритм, ясность и силу текста. Укажи, что именно изменил и почему. Не добавляй ничего от себя.
+      </div>
+    </section>
+
+    <!-- УЧЁБА -->
+    <section class="card" id="study">
+      <div class="card-head">
+        <div class="card-icon" style="background:#1e293b;">📚</div>
+        <div>
+          <div class="card-title">Учёба и конспекты</div>
+          <div class="card-desc">Как быстро разбирать темы и готовиться</div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Конспект</div>
+        Сделай понятный конспект по теме: [тема]. Разбей на логичные пункты. Выдели самое важное. В конце добавь 5 вопросов для самопроверки.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Объясни как новичку</div>
+        Объясни [сложная тема] максимально просто, как будто мне 14 лет. Используй аналогии из реальной жизни. Без сложных терминов.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Подготовка к экзамену</div>
+        Составь план изучения темы [тема] на 5 дней. Каждый день — конкретные действия + что повторить. В конце — мини-тест из 8 вопросов с ответами.
+      </div>
+    </section>
+
+    <!-- КОД -->
+    <section class="card" id="code">
+      <div class="card-head">
+        <div class="card-icon" style="background:#1c1917;">💻</div>
+        <div>
+          <div class="card-title">Код и задачи</div>
+          <div class="card-desc">Написание, отладка и объяснение кода</div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Написать код</div>
+        Напиши чистый код на [язык] для задачи: [описание]. Добавь краткие комментарии. В конце объясни, как он работает, простыми словами.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Исправить ошибку</div>
+        Вот код и ошибка:
+        [вставь код + текст ошибки]
+        Найди причину, исправь и объясни, что было не так.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Оптимизация</div>
+        Оптимизируй этот код: сделай его быстрее и читаемее. Объясни, какие изменения внёс и зачем.
+      </div>
+    </section>
+
+    <!-- ПРОДУКТИВНОСТЬ -->
+    <section class="card" id="prod">
+      <div class="card-head">
+        <div class="card-icon" style="background:#3b1f2b;">⚡</div>
+        <div>
+          <div class="card-title">Продуктивность</div>
+          <div class="card-desc">Планирование, разбор задач, принятие решений</div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">План на день</div>
+        Ты — мой помощник. Вот список дел на сегодня: [список]. Расставь приоритеты, предложи порядок выполнения и скажи, что можно отложить.
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Принятие решения</div>
+        Помоги принять решение. Ситуация: [описание]. Дай самый сильный аргумент «за» и «против». В конце — чёткая рекомендация в 2 предложениях. Не пиши «с одной стороны…».
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-tag">Разбор задачи</div>
+        Разбери задачу [описание] по шагам. Для каждого шага укажи конкретные действия и возможные ошибки. В конце — короткий чек-лист.
+      </div>
+    </section>
+
+    <!-- ДОПОЛНИТЕЛЬНО -->
+    <section class="card" id="extra">
+      <div class="card-head">
+        <div class="card-icon" style="background:#1e1b4b;">✨</div>
+        <div>
+          <div class="card-title">Ещё полезные приёмы</div>
+          <div class="card-desc">Мелочи, которые сильно влияют на качество ответа</div>
+        </div>
+      </div>
+
+      <ul class="clean">
         <li>Если ответ слишком общий — добавь «Будь конкретным. Дай примеры.»</li>
-        <li>Для длинных задач разбивай запрос на части</li>
-        <li>В GPT хорошо работает «Отвечай только по делу, без вступлений»</li>
-        <li>Можно давать роль: «Ты — строгий редактор» / «Ты — учитель» / «Ты — маркетолог»</li>
-        <li>Если нейросеть «плывёт» — напомни контекст: «Мы обсуждаем [тема], продолжай в том же стиле»</li>
+        <li>Для длинных задач разбивай запрос на части и давай контекст из предыдущих ответов</li>
+        <li>Можно запрещать: «Не используй вводные фразы», «Не пиши “конечно” и “отличный вопрос”»</li>
+        <li>В Claude хорошо работает XML-структура: <роль>, <задача>, <формат></li>
+        <li>Проси самопроверку: «После ответа проверь себя и исправь ошибки, если они есть»</li>
+        <li>Для сложных тем добавляй «Думай по шагам» (chain-of-thought)</li>
       </ul>
-    </div>
 
-    <!-- Дополнительно -->
-    <div class="card" id="extra">
-      <div class="card-title"><span>📂</span> Что ещё можно попросить</div>
-      <ul class="list">
-        <li>Шаблон идеального запроса под любую задачу</li>
-        <li>Список команд, которые экономят время</li>
-        <li>Как обходить типичные ограничения бесплатных версий</li>
-        <li>Примеры сильных и слабых промптов (с разбором)</li>
-        <li>Промпты для генерации идей, названий, слоганов</li>
-        <li>Промпты для разбора конкурентов и ниш</li>
-      </ul>
-      
       <div class="tip">
-        💬 Хочешь ещё материалы или гайд под конкретную задачу — напиши мне после отзыва, скину дополнительно.
+        💬 Хочешь гайд под конкретную задачу (рилсы, Notion, анализ конкурентов, генерация идей и т.д.) — напиши мне после отзыва, скину дополнительно.
       </div>
-    </div>
+    </section>
 
-    <div class="footer">
+    <footer class="footer">
       <p>Спасибо за отзыв 💜</p>
-      <p style="margin-top: 6px;"><strong>Этот доступ только для тех, кто оставил отзыв</strong></p>
-    </div>
+      <p style="margin-top:8px"><strong>Этот материал — бонус только для тех, кто оставил отзыв</strong></p>
+    </footer>
+
   </div>
 </body>
 </html>
