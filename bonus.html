@@ -7,29 +7,25 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0f0f13;
       color: #e4e4e7;
-      line-height: 1.6;
+      line-height: 1.65;
       min-height: 100vh;
     }
     
     .container {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 40px 20px 60px;
     }
     
     .header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
     
     .badge {
@@ -47,7 +43,7 @@
     h1 {
       font-size: 28px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       background: linear-gradient(to right, #c4b5fd, #a5b4fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -58,52 +54,73 @@
       font-size: 15px;
     }
     
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 28px 0 36px;
+    }
+    
+    .nav a {
+      background: #18181b;
+      border: 1px solid #27272a;
+      color: #d4d4d8;
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .nav a:hover {
+      border-color: #8b5cf6;
+      color: #c4b5fd;
+    }
+    
     .card {
       background: #18181b;
       border: 1px solid #27272a;
       border-radius: 16px;
-      padding: 28px;
+      padding: 26px;
       margin-bottom: 20px;
-      transition: border-color 0.2s;
-    }
-    
-    .card:hover {
-      border-color: #3f3f46;
     }
     
     .card-title {
       font-size: 18px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
     
-    .card-title span {
-      font-size: 22px;
+    .card-title span { font-size: 22px; }
+    
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #c4b5fd;
+      margin: 20px 0 10px;
     }
+    
+    h3:first-of-type { margin-top: 0; }
     
     .prompt-box {
       background: #09090b;
       border: 1px solid #27272a;
       border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 12px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
       font-size: 14px;
       color: #d4d4d8;
-      position: relative;
-    }
-    
-    .prompt-box:last-child {
-      margin-bottom: 0;
     }
     
     .prompt-label {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: #a78bfa;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -111,11 +128,11 @@
     .tip {
       background: #1e1b4b;
       border-left: 3px solid #8b5cf6;
-      padding: 14px 16px;
+      padding: 13px 15px;
       border-radius: 0 10px 10px 0;
       font-size: 14px;
       color: #c4b5fd;
-      margin-top: 16px;
+      margin-top: 14px;
     }
     
     .list {
@@ -123,23 +140,35 @@
     }
     
     .list li {
-      padding: 10px 0;
+      padding: 9px 0;
       border-bottom: 1px solid #27272a;
-      font-size: 15px;
+      font-size: 14.5px;
       display: flex;
       align-items: flex-start;
       gap: 10px;
     }
     
-    .list li:last-child {
-      border-bottom: none;
-    }
+    .list li:last-child { border-bottom: none; }
     
     .list li::before {
       content: "→";
       color: #8b5cf6;
       font-weight: 600;
       flex-shrink: 0;
+    }
+    
+    .step {
+      background: #09090b;
+      border: 1px solid #27272a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+    }
+    
+    .step strong {
+      color: #a78bfa;
+      font-weight: 600;
     }
     
     .footer {
@@ -151,9 +180,7 @@
       font-size: 13px;
     }
     
-    .footer strong {
-      color: #a1a1aa;
-    }
+    .footer strong { color: #a1a1aa; }
   </style>
 </head>
 <body>
@@ -164,11 +191,18 @@
       <p class="subtitle">Доступ открыт только тем, кто оставил отзыв</p>
     </div>
 
-    <!-- Готовые промпты -->
-    <div class="card">
-      <div class="card-title">
-        <span>✨</span> Готовые промпты
-      </div>
+    <div class="nav">
+      <a href="#prompts">Промпты</a>
+      <a href="#copy">Копирайтинг</a>
+      <a href="#study">Учёба</a>
+      <a href="#code">Код</a>
+      <a href="#tips">Фишки</a>
+      <a href="#extra">Ещё</a>
+    </div>
+
+    <!-- Базовые промпты -->
+    <div class="card" id="prompts">
+      <div class="card-title"><span>✨</span> Готовые промпты</div>
       
       <div class="prompt-box">
         <div class="prompt-label">Для Claude</div>
@@ -186,33 +220,97 @@
       </div>
     </div>
 
-    <!-- Полезные фишки -->
-    <div class="card">
-      <div class="card-title">
-        <span>💡</span> Полезные фишки
+    <!-- Гайд: Копирайтинг -->
+    <div class="card" id="copy">
+      <div class="card-title"><span>✍️</span> Гайд: тексты и объявления</div>
+      
+      <h3>Промпт для объявления на FunPay</h3>
+      <div class="prompt-box">
+        Напиши продающее объявление для FunPay. Товар: [название]. Основные преимущества: [список]. Сделай текст коротким, цепляющим, без воды. Добавь эмодзи и чёткий призыв к покупке.
       </div>
+      
+      <h3>Промпт для поста</h3>
+      <div class="prompt-box">
+        Напиши пост для Telegram/Instagram про [тема]. Стиль — живой и дружеский. В начале хук, в середине польза, в конце вопрос или призыв.
+      </div>
+      
+      <h3>Как улучшить любой текст</h3>
+      <div class="step"><strong>1.</strong> Вставь текст и напиши: «Перепиши этот текст живее, убери воду, сделай короче и сильнее»</div>
+      <div class="step"><strong>2.</strong> Если нужно жёстче: «Сделай текст более продающим, добавь выгоды и срочность»</div>
+      <div class="step"><strong>3.</strong> Для мягкого варианта: «Сделай текст дружелюбным и доверительным»</div>
+    </div>
+
+    <!-- Гайд: Учёба -->
+    <div class="card" id="study">
+      <div class="card-title"><span>📚</span> Гайд: учёба и конспекты</div>
+      
+      <h3>Промпт для конспекта</h3>
+      <div class="prompt-box">
+        Сделай подробный, но понятный конспект по теме: [тема]. Разбей на пункты. Выдели главное. В конце добавь 5 вопросов для самопроверки.
+      </div>
+      
+      <h3>Промпт для объяснения сложного</h3>
+      <div class="prompt-box">
+        Объясни [сложная тема] так, будто мне 14 лет. Используй простые слова и примеры из жизни. Без научных терминов, если можно их заменить.
+      </div>
+      
+      <h3>Как готовиться к экзамену</h3>
       <ul class="list">
-        <li>В Claude лучше всего работает формат «Ты — эксперт в [сфера]. Твоя задача — ...»</li>
-        <li>Если ответ слишком общий — добавь «Будь конкретным. Дай примеры.»</li>
-        <li>Для длинных задач разбивай запрос на части и давай контекст из предыдущих ответов</li>
-        <li>В GPT хорошо работает «Отвечай только по делу, без вступлений»</li>
+        <li>Скинь тему → попроси план изучения на 3–7 дней</li>
+        <li>Попроси сгенерировать тест из 10 вопросов с ответами</li>
+        <li>Попроси объяснить только то, что чаще всего спрашивают</li>
       </ul>
     </div>
 
-    <!-- Дополнительные материалы -->
-    <div class="card">
-      <div class="card-title">
-        <span>📂</span> Что ещё внутри
+    <!-- Гайд: Код -->
+    <div class="card" id="code">
+      <div class="card-title"><span>💻</span> Гайд: код и задачи</div>
+      
+      <h3>Промпт для написания кода</h3>
+      <div class="prompt-box">
+        Напиши код на [язык] для задачи: [описание]. Добавь комментарии. Сделай код чистым и понятным. В конце кратко объясни, как он работает.
       </div>
+      
+      <h3>Промпт для исправления ошибок</h3>
+      <div class="prompt-box">
+        Вот код и ошибка: [вставь код и ошибку]. Найди причину и исправь. Объясни, что было не так.
+      </div>
+      
+      <h3>Полезные команды</h3>
+      <ul class="list">
+        <li>«Оптимизируй этот код и сделай его быстрее»</li>
+        <li>«Перепиши этот код на [другой язык]»</li>
+        <li>«Добавь обработку ошибок в этот код»</li>
+      </ul>
+    </div>
+
+    <!-- Фишки -->
+    <div class="card" id="tips">
+      <div class="card-title"><span>💡</span> Полезные фишки</div>
+      <ul class="list">
+        <li>В Claude лучше всего работает формат «Ты — эксперт в [сфера]. Твоя задача — ...»</li>
+        <li>Если ответ слишком общий — добавь «Будь конкретным. Дай примеры.»</li>
+        <li>Для длинных задач разбивай запрос на части</li>
+        <li>В GPT хорошо работает «Отвечай только по делу, без вступлений»</li>
+        <li>Можно давать роль: «Ты — строгий редактор» / «Ты — учитель» / «Ты — маркетолог»</li>
+        <li>Если нейросеть «плывёт» — напомни контекст: «Мы обсуждаем [тема], продолжай в том же стиле»</li>
+      </ul>
+    </div>
+
+    <!-- Дополнительно -->
+    <div class="card" id="extra">
+      <div class="card-title"><span>📂</span> Что ещё можно попросить</div>
       <ul class="list">
         <li>Шаблон идеального запроса под любую задачу</li>
         <li>Список команд, которые экономят время</li>
         <li>Как обходить типичные ограничения бесплатных версий</li>
         <li>Примеры сильных и слабых промптов (с разбором)</li>
+        <li>Промпты для генерации идей, названий, слоганов</li>
+        <li>Промпты для разбора конкурентов и ниш</li>
       </ul>
       
       <div class="tip">
-        💬 Если хочешь ещё материалы — напиши мне после отзыва, скину дополнительные файлы.
+        💬 Хочешь ещё материалы или гайд под конкретную задачу — напиши мне после отзыва, скину дополнительно.
       </div>
     </div>
 
