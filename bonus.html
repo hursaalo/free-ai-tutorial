@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁 Бонус за отзыв | Закрытые материалы</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f0f13;
+      color: #e4e4e7;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .subtitle {
+      color: #a1a1aa;
+      font-size: 15px;
+    }
+    
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    
+    .card:hover {
+      border-color: #3f3f46;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card-title span {
+      font-size: 22px;
+    }
+    
+    .prompt-box {
+      background: #09090b;
+      border: 1px solid #27272a;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #d4d4d8;
+      position: relative;
+    }
+    
+    .prompt-box:last-child {
+      margin-bottom: 0;
+    }
+    
+    .prompt-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .tip {
+      background: #1e1b4b;
+      border-left: 3px solid #8b5cf6;
+      padding: 14px 16px;
+      border-radius: 0 10px 10px 0;
+      font-size: 14px;
+      color: #c4b5fd;
+      margin-top: 16px;
+    }
+    
+    .list {
+      list-style: none;
+    }
+    
+    .list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #27272a;
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .list li:last-child {
+      border-bottom: none;
+    }
+    
+    .list li::before {
+      content: "→";
+      color: #8b5cf6;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #27272a;
+      color: #71717a;
+      font-size: 13px;
+    }
+    
+    .footer strong {
+      color: #a1a1aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge">🎁 ПОДАРОК ЗА ОТЗЫВ</div>
+      <h1>Закрытые материалы</h1>
+      <p class="subtitle">Доступ открыт только тем, кто оставил отзыв</p>
+    </div>
+
+    <!-- Готовые промпты -->
+    <div class="card">
+      <div class="card-title">
+        <span>✨</span> Готовые промпты
+      </div>
+      
+      <div class="prompt-box">
+        <div class="prompt-label">Для Claude</div>
+        Ты — опытный копирайтер. Напиши продающий текст для [товар/услуга]. Сделай его живым, без воды, с акцентом на выгоды. Добавь призыв к действию в конце.
+      </div>
+      
+      <div class="prompt-box">
+        <div class="prompt-label">Для GPT</div>
+        Разбери задачу [опиши задачу] по шагам. Для каждого шага дай конкретные действия и возможные ошибки. В конце — чек-лист.
+      </div>
+      
+      <div class="prompt-box">
+        <div class="prompt-label">Универсальный</div>
+        Объясни [тема] максимально просто, как будто я полный новичок. Используй аналогии из реальной жизни. В конце задай 3 вопроса, чтобы проверить понимание.
+      </div>
+    </div>
+
+    <!-- Полезные фишки -->
+    <div class="card">
+      <div class="card-title">
+        <span>💡</span> Полезные фишки
+      </div>
+      <ul class="list">
+        <li>В Claude лучше всего работает формат «Ты — эксперт в [сфера]. Твоя задача — ...»</li>
+        <li>Если ответ слишком общий — добавь «Будь конкретным. Дай примеры.»</li>
+        <li>Для длинных задач разбивай запрос на части и давай контекст из предыдущих ответов</li>
+        <li>В GPT хорошо работает «Отвечай только по делу, без вступлений»</li>
+      </ul>
+    </div>
+
+    <!-- Дополнительные материалы -->
+    <div class="card">
+      <div class="card-title">
+        <span>📂</span> Что ещё внутри
+      </div>
+      <ul class="list">
+        <li>Шаблон идеального запроса под любую задачу</li>
+        <li>Список команд, которые экономят время</li>
+        <li>Как обходить типичные ограничения бесплатных версий</li>
+        <li>Примеры сильных и слабых промптов (с разбором)</li>
+      </ul>
+      
+      <div class="tip">
+        💬 Если хочешь ещё материалы — напиши мне после отзыва, скину дополнительные файлы.
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Спасибо за отзыв 💜</p>
+      <p style="margin-top: 6px;"><strong>Этот доступ только для тех, кто оставил отзыв</strong></p>
+    </div>
+  </div>
+</body>
+</html>
